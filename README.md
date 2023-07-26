@@ -1,0 +1,1 @@
+Aula do dia 25/07 - Collections e final de manipulação de arrays;

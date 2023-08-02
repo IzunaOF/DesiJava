@@ -1,22 +1,24 @@
 package trabalhandoarrays;
 
+import collections.Chalenges;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
+
 
 public class TrabalhandoArrays {
 
     public static void main(String[] args) {
         // TODO programa com JOptionPane com 3 notas e fazer a media
-        
+
         // para o array [10, -7, 10, 34, 50, 37];
-        // remover o ultimo elemento do arraylist
-        
-        // remover o primeiro elemento do arraylist
-        
-        // remover o menor número do array
-        
+        // remover o ultimo elemento do arraylist;      
+        // remover o primeiro elemento do arraylist;
+        // remover o menor número do array;
         //para u trecho, remover as vogais e trocar para o l33t;
+        // new collections.Collections().aMurderBtw();
+        
+        new Chalenges().setVisible(true);
     }
 
     public static void lista() {

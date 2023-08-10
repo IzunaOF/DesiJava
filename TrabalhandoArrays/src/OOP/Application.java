@@ -44,33 +44,33 @@ public class Application {
 
             if (ans == 6) {
                 this.exitMessage();
+            } else {
+                switch (ans) {
+                    case 1:
+                        this.createNewAccount();
+                        break;
+                    case 2:
+                        value = Double.parseDouble(this.getUserAnswers("Valor para depósito: "));
+                        this.session.deposit(value);
+                        break;
+                    case 3:
+                        value = Double.parseDouble(this.getUserAnswers("Valor para Saque: "));
+                        this.session.withdraw(value);
+                        break;
+                    case 4:
+                        this.showUserAccount();
+                        break;
+                    case 5:
+                        int isToRemove = JOptionPane.showConfirmDialog(null, "Encerrar conta de usuário: " + this.session.getOwnerAccount());
+                        if (isToRemove == 1) {
+                            this.accountList.remove(session);
+                        }
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Opção Inválida");
+                        break;
+                }
             }
-            switch (ans) {
-                case 1:
-                    this.createNewAccount();
-                    break;
-                case 2:
-                    value = Double.parseDouble(this.getUserAnswers("Valor para depósito: "));
-                    this.session.deposit(value);
-                    break;
-                case 3:
-                    value = Double.parseDouble(this.getUserAnswers("Valor para Saque: "));
-                    this.session.withdraw(value);
-                    break;
-                case 4:
-                    this.showUserAccount();
-                    break;
-                case 5:
-                    int isToRemove = JOptionPane.showConfirmDialog(null, "Encerrar conta de usuário: " + this.session.getOwnerAccount());
-                    if (isToRemove == 1) {
-                        this.accountList.remove(session);
-                    }
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção Inválida");
-                    break;
-            }
-
         } while (ans != 6);
 
     }

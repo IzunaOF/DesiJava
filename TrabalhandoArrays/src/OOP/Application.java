@@ -95,7 +95,7 @@ public class Application {
 
     private void createNewAccount() {
         String ownerName = getUserAnswers("Nome do Usuário");
-        String numberAccount = String.valueOf(Math.floor(Math.random() * 10000));
+        String numberAccount = String.valueOf(Math.floor(Math.random() * 10000)).replace(".", accountList.size() + "");
 
         accountList.add(new Account(ownerName, numberAccount));
 

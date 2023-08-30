@@ -38,8 +38,13 @@ public class ProductCard extends javax.swing.JPanel {
         productDetailsButton = new javax.swing.JButton();
         priceLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(235, 235, 245));
+
+        productNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         productNameLabel.setText("productNameLabel");
 
+        productDetailsButton.setBackground(new java.awt.Color(0, 102, 102));
+        productDetailsButton.setForeground(new java.awt.Color(255, 255, 255));
         productDetailsButton.setText("Details");
         productDetailsButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -48,17 +53,19 @@ public class ProductCard extends javax.swing.JPanel {
         });
 
         priceLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         priceLabel.setText("00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(productNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(productNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
             .addComponent(priceLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(productDetailsButton)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,7 +73,7 @@ public class ProductCard extends javax.swing.JPanel {
                 .addComponent(productNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(19, 19, 19)
                 .addComponent(productDetailsButton))
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -35,6 +35,7 @@ public class StoreFrame extends javax.swing.JFrame {
         setActualViewPage(1);
         this.loadCards(false);
         cartOwner.setText(session.currentUser.getOwnerAccount() + "'s Shopcart");
+        cartOwnerLabel.setText(session.currentUser.getOwnerAccount() + "'s Shopcart");
     }
 
     private void setActualViewPage(int value) {
@@ -59,10 +60,10 @@ public class StoreFrame extends javax.swing.JFrame {
         stoque.repaint();
         stoque.revalidate();
 
-        int x = 50;
-        int y = 0;
+        int x = 5;
+        int y = 5;
         int w = 150;
-        int h = 150;
+        int h = 130;
 
         for (int i = (actualPage - 1) * itemsPage, control = 0; i < this.products.size(); i++, control++) {
             if (control == itemsPage) {
@@ -81,8 +82,8 @@ public class StoreFrame extends javax.swing.JFrame {
 
             x += 155;
             if (x > this.container.getSize().width - 150) {
-                x = 50;
-                y += 130;
+                x = 5;
+                y += 135;
             }
 //ss
             this.stoque.add(details);
@@ -127,7 +128,6 @@ public class StoreFrame extends javax.swing.JFrame {
 
                 views.add(button);
                 views.add(details);
-
             }
         }
 
@@ -175,41 +175,56 @@ public class StoreFrame extends javax.swing.JFrame {
         cartView = new javax.swing.JPanel();
         views = new javax.swing.JPanel();
         backPage = new javax.swing.JButton();
+        cartOwnerLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         main.setLayout(new java.awt.CardLayout());
 
+        stoque.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout stoqueLayout = new javax.swing.GroupLayout(stoque);
         stoque.setLayout(stoqueLayout);
         stoqueLayout.setHorizontalGroup(
             stoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
         );
         stoqueLayout.setVerticalGroup(
             stoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
 
+        page.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         page.setText("page");
 
+        cartOwner.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
         cartOwner.setText("cartOwner");
 
+        prevPage.setBackground(new java.awt.Color(0, 102, 102));
+        prevPage.setForeground(new java.awt.Color(255, 255, 255));
         prevPage.setText("<<");
+        prevPage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 0), new java.awt.Color(204, 153, 0), new java.awt.Color(0, 204, 0), new java.awt.Color(0, 204, 153)));
         prevPage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prevPageMouseClicked(evt);
             }
         });
 
+        nextPage.setBackground(new java.awt.Color(0, 102, 102));
+        nextPage.setForeground(new java.awt.Color(255, 255, 255));
         nextPage.setText(">>");
+        nextPage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 0), new java.awt.Color(204, 153, 0), new java.awt.Color(0, 204, 0), new java.awt.Color(0, 204, 153)));
         nextPage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nextPageMouseClicked(evt);
             }
         });
 
+        addCartView.setBackground(new java.awt.Color(0, 102, 102));
+        addCartView.setForeground(new java.awt.Color(255, 255, 255));
         addCartView.setText("CartView");
+        addCartView.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 153, 0), new java.awt.Color(255, 255, 0), new java.awt.Color(0, 102, 102), new java.awt.Color(51, 51, 0)));
+        addCartView.setPreferredSize(new java.awt.Dimension(80, 30));
         addCartView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addCartViewMouseClicked(evt);
@@ -220,43 +235,48 @@ public class StoreFrame extends javax.swing.JFrame {
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                        .addComponent(prevPage)
+                        .addComponent(cartOwner)
+                        .addGap(218, 218, 218)
+                        .addComponent(addCartView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
+                        .addComponent(prevPage, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(page)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nextPage)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                        .addComponent(cartOwner)
-                        .addGap(178, 178, 178)
-                        .addComponent(addCartView)
-                        .addGap(52, 52, 52))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                        .addComponent(stoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(nextPage, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64))))
+            .addGroup(containerLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(stoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(30, 30, 30)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cartOwner)
-                    .addComponent(addCartView))
-                .addGap(18, 18, 18)
-                .addComponent(stoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addCartView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(stoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(page)
-                    .addComponent(prevPage)
-                    .addComponent(nextPage))
+                    .addComponent(prevPage, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nextPage, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         main.add(container, "showcase");
+
+        cartView.setBackground(new java.awt.Color(238, 238, 242));
+
+        views.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout viewsLayout = new javax.swing.GroupLayout(views);
         views.setLayout(viewsLayout);
@@ -266,38 +286,53 @@ public class StoreFrame extends javax.swing.JFrame {
         );
         viewsLayout.setVerticalGroup(
             viewsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
+            .addGap(0, 423, Short.MAX_VALUE)
         );
 
+        backPage.setBackground(new java.awt.Color(51, 0, 102));
+        backPage.setForeground(new java.awt.Color(255, 255, 255));
         backPage.setText("<<");
+        backPage.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        backPage.setPreferredSize(new java.awt.Dimension(40, 25));
         backPage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backPageMouseClicked(evt);
             }
         });
+        backPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backPageActionPerformed(evt);
+            }
+        });
+
+        cartOwnerLabel.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        cartOwnerLabel.setText("CartOwner");
 
         javax.swing.GroupLayout cartViewLayout = new javax.swing.GroupLayout(cartView);
         cartView.setLayout(cartViewLayout);
         cartViewLayout.setHorizontalGroup(
             cartViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cartViewLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addGroup(cartViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(views, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(cartViewLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(views, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cartViewLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(backPage)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addComponent(backPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(149, 149, 149)
+                        .addComponent(cartOwnerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         cartViewLayout.setVerticalGroup(
             cartViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartViewLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(backPage)
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(cartViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cartOwnerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(views, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap())
         );
 
         main.add(cartView, "cartView");
@@ -312,7 +347,7 @@ public class StoreFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 236, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -341,10 +376,15 @@ public class StoreFrame extends javax.swing.JFrame {
         changePainel(main, "showcase");
     }//GEN-LAST:event_backPageMouseClicked
 
+    private void backPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backPageActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCartView;
     private javax.swing.JButton backPage;
     private javax.swing.JLabel cartOwner;
+    private javax.swing.JLabel cartOwnerLabel;
     private javax.swing.JPanel cartView;
     private javax.swing.JPanel container;
     private javax.swing.JPanel main;

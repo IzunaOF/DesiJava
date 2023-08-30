@@ -46,24 +46,33 @@ public class ProductView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 255));
 
-        lastPageButton.setText("<<");
+        lastPageButton.setBackground(new java.awt.Color(51, 0, 51));
+        lastPageButton.setForeground(new java.awt.Color(255, 255, 255));
+        lastPageButton.setText("X");
+        lastPageButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 0, 51), new java.awt.Color(153, 0, 153), new java.awt.Color(255, 0, 204), new java.awt.Color(204, 0, 153)));
         lastPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lastPageButtonMouseClicked(evt);
             }
         });
 
-        addMessage.setText("msg");
-
         viewProductDescription.setText("viewProductDescription");
 
         viewProductName.setText("viewProductName");
 
         viewProductPrice.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        viewProductPrice.setForeground(new java.awt.Color(102, 51, 0));
         viewProductPrice.setText("R$ 00");
 
+        addCart.setBackground(new java.awt.Color(255, 255, 255));
         addCart.setText("ADD ");
+        addCart.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        addCart.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        addCart.setMaximumSize(new java.awt.Dimension(70, 35));
+        addCart.setMinimumSize(new java.awt.Dimension(70, 35));
+        addCart.setPreferredSize(new java.awt.Dimension(70, 35));
         addCart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addCartMouseClicked(evt);
@@ -73,6 +82,7 @@ public class ProductView extends javax.swing.JFrame {
         buyAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         buyAmount.setText("1");
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Quantidade");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,29 +90,29 @@ public class ProductView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lastPageButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(215, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buyAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(jLabel1))
-                    .addComponent(addCart)
+                    .addComponent(addCart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addMessage)
                     .addComponent(viewProductDescription)
                     .addComponent(viewProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewProductName))
                 .addGap(67, 67, 67))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lastPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lastPageButton)
-                .addGap(63, 63, 63)
+                .addContainerGap()
+                .addComponent(lastPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
                 .addComponent(viewProductName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewProductDescription)
@@ -112,11 +122,11 @@ public class ProductView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(buyAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addCart)
+                .addGap(18, 18, 18)
+                .addComponent(addCart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addMessage)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();

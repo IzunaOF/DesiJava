@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.UUID;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class Account {
 
@@ -10,9 +11,11 @@ public class Account {
     private String tipoConta;
     private String tipoTitular;
     private Double saldo;
+    private String senha;
 
-    public Account(Pessoa titular, Integer numeroConta, String tipoConta, String tipoTitular) {
+    public Account(Pessoa titular, Integer numeroConta, String tipoConta, String tipoTitular, String senha) {
         this.id = UUID.randomUUID();
+        this.senha = BCrypt.hashpw(senha, BCrypt.gensalt());
         this.titular = titular;
         this.numeroConta = numeroConta;
         this.tipoConta = tipoConta;
@@ -20,8 +23,9 @@ public class Account {
         this.saldo = 0.0;
     }
 
-    public Account(UUID id, Pessoa titular, Integer numeroConta, String tipoConta, String tipoTitular, Double saldo) {
+    public Account(UUID id, Pessoa titular, Integer numeroConta, String tipoConta, String tipoTitular, Double saldo, String senha) {
         this.id = id;
+        this.senha = senha;
         this.titular = titular;
         this.numeroConta = numeroConta;
         this.tipoConta = tipoConta;
@@ -31,6 +35,10 @@ public class Account {
 
     public UUID getId() {
         return this.id;
+    }
+    
+    public String getSenha(){
+        return this.senha;
     }
 
     public String getNomeTitular() {

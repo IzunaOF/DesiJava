@@ -5,13 +5,19 @@
  */
 package Views;
 
-import Models.Main;
+import Controllers.ContaController;
+
+import javax.swing.JOptionPane;
 
 public class ClienteView extends javax.swing.JFrame {
 
+    ContaController contaController = new ContaController();
+
     public ClienteView() {
         initComponents();
-        
+
+        solicitaDocumento();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -105,12 +111,18 @@ public class ClienteView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void solicitaDocumento() {
+
+        String doc = JOptionPane.showInputDialog("informe seu documento");
+        contaController.getAccountByDocument(doc);
+
+    }
     private void botaoTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTransferirActionPerformed
-        
+
     }//GEN-LAST:event_botaoTransferirActionPerformed
 
     private void botaoDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDepositarActionPerformed
-        
+
     }//GEN-LAST:event_botaoDepositarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

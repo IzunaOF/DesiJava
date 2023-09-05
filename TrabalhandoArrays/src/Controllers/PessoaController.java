@@ -1,23 +1,21 @@
 package Controllers;
 
-import DAO.postgres.PessoaDAOPostgres;
+import static Factory.FactoryDAO.makePessoaDAO;
 import Models.Pessoa;
 import Models.PessoaFisica;
 import Models.PessoaJuridica;
-import Util.ConnectionClient;
 
 public class PessoaController {
 
     public Pessoa criarPessoa(String nomeTitular, String documento, String tipoTitular) {
         Pessoa pessoa = null;
         if (tipoTitular.endsWith("Pessoa Física")) {
-            
-            pessoa =  new PessoaFisica(nomeTitular, documento);
-        }else{
-            pessoa =  new PessoaJuridica(nomeTitular, documento);
+            pessoa = new PessoaFisica(nomeTitular, documento);
+        } else {
+            pessoa = new PessoaJuridica(nomeTitular, documento);
         }
-        
-        new PessoaDAOPostgres(ConnectionClient.getConnection()).inserirPessoa(pessoa);
+
+        makePessoaDAO().inserirPessoa(pessoa);
         return pessoa;
     }
 

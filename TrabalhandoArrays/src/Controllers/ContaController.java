@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.postgres.ContaDAOPostgres;
+import static Factory.FactoryDAO.makeContaDAO;
 import Models.Pessoa;
 
 import Models.Account;
@@ -12,46 +13,45 @@ import Models.PessoaFisica;
 import Util.ConnectionClient;
 
 public class ContaController {
+
     private Integer ID_CONTROL = 0;
 
     private String[] types = {"cs", "cp", "cc"};
 
-    public Account createAccount(Pessoa titular, String tipoConta, String tipoTitular) {
+    public Account createAccount(Pessoa titular, String tipoConta, String tipoTitular, String senha) {
         Account conta;
         ID_CONTROL++;
         switch (tipoConta) {
             case "cc":
-                conta = new ContaCorrente(titular,ID_CONTROL , "cc", tipoTitular);
+                conta = new ContaCorrente(titular, ID_CONTROL, "cc", tipoTitular, senha);
                 break;
             case "cp":
-                conta = new ContaPoupanca(titular, ID_CONTROL, "cp", tipoTitular);
+                conta = new ContaPoupanca(titular, ID_CONTROL, "cp", tipoTitular, senha);
                 break;
             case "cs":
-                conta = new ContaSalario(titular, ID_CONTROL, "cs", tipoTitular);
+                conta = new ContaSalario(titular, ID_CONTROL, "cs", tipoTitular, senha);
                 break;
             default:
                 conta = null;
                 break;
         }
 
-         new ContaDAOPostgres(ConnectionClient.getConnection()).inserirConta(conta);
-        
-        
+        makeContaDAO().inserirConta(conta);
+
         return null;
     }
 
     public Account getAccountByDocument(String key) {
-        return new ContaDAOPostgres((ConnectionClient.getConnection())).buscarContaPorDocumentoTitular(key);
+        return makeContaDAO().buscarContaPorDocumentoTitular(key);
     }
 
     public void transferir(Account owner, String destino, Double value) {
-        
+
     }
-    
-    public void depositar(String documento, Double value){
-        ContaDAOPostgres pg =  new ContaDAOPostgres(ConnectionClient.getConnection());
-        Account conta = pg.buscarContaPorDocumentoTitular(documento);
+
+    public void depositar(String documento, Double value) {
+        Account conta = makeContaDAO().buscarContaPorDocumentoTitular(documento);
         conta.depositar(value);
-        pg.atualizarSaldo(conta);
+        makeContaDAO().atualizarSaldo(conta);
     }
 }

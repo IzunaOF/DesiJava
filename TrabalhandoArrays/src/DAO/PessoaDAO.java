@@ -6,5 +6,4 @@ import java.util.UUID;
 public interface PessoaDAO {
     public void inserirPessoa(Pessoa pessoa);
     public Pessoa obterPessoaPeloID(UUID id);
-    
 }

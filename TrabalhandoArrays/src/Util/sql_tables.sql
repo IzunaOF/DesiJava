@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  * Author:  leonardo_santos29
  * Created: 28/08/2023
@@ -24,7 +25,6 @@ CREATE TABLE t_conta (
 	tipo tipo_conta NOT NULL,
 	pessoa_id UUID references t_pessoa(id)
 )
-
 select * from t_conta
 
 

@@ -83,4 +83,8 @@ public class Account {
     public void setTipoConta(String tipoConta) {
         this.tipoConta = tipoConta;
     }
+    
+    public boolean validaSenha(String senha){
+        return BCrypt.checkpw(senha, this.senha);
+    }
 }

@@ -5,10 +5,33 @@
  */
 package Models;
 
-/**
- *
- * @author leonardo_santos29
- */
+import java.util.Date;
+import java.util.UUID;
+
 public class Transactions {
-    
+
+    private Integer numero;
+    private UUID conta_id;
+    private UUID pessoa_id;
+    private String created_at;
+    private TipoOperacao type;
+    private Double saldo;
+
+    public Transactions(Integer numero, UUID conta_id, UUID pessoa_id, TipoOperacao type, Double saldo) {
+        this.numero = numero;
+        this.conta_id = conta_id;
+        this.pessoa_id = pessoa_id;
+        this.created_at = new Date().toLocaleString();
+        this.type = type;
+        this.saldo = saldo;
+    }
+
+    public Transactions(Integer numero, UUID conta_id, UUID pessoa_id, String created_at, TipoOperacao type, Double saldo) {
+        this.numero = numero;
+        this.conta_id = conta_id;
+        this.pessoa_id = pessoa_id;
+        this.created_at = created_at;
+        this.type = type;
+        this.saldo = saldo;
+    }
 }

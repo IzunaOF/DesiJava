@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
-/**
- *
- * @author leonardo_santos29
- */
+import Models.TipoOperacao;
+import Models.Transactions;
+import java.util.UUID;
+
 public class TransactionsController {
-    
+    private Integer ID_OPTION = 0;
+    public Transactions createTransaction(UUID conta_id, UUID pessoa_id, TipoOperacao type, Double saldo){
+        
+    }
 }

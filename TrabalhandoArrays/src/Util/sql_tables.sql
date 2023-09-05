@@ -27,4 +27,14 @@ CREATE TABLE t_conta (
 )
 select * from t_conta
 
+CREATE TYPE enum_tipo_operacao as ENUM('entrada', 'saida');
 
+CREATE TABLE transactions (
+	id SERIAL primary key,
+	conta_id UUID NOT NULL references t_conta(id),
+	client_id UUID NOT NULL references t_pessoa(id),
+	created_at DATE NOT NULL,
+	tipo_operacao enum_tipo_operacao NOT NULL 
+)
+
+ALTER TABLE transactions ADD COLUMN saldo_conta DECIMAL NOT NULL

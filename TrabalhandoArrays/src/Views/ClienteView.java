@@ -6,12 +6,14 @@
 package Views;
 
 import Controllers.ContaController;
+import Models.Account;
 
 import javax.swing.JOptionPane;
 
 public class ClienteView extends javax.swing.JFrame {
 
     ContaController contaController = new ContaController();
+    Account conta = null;
 
     public ClienteView() {
         initComponents();
@@ -112,9 +114,19 @@ public class ClienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void solicitaDocumento() {
+        boolean ehValida = false;
+        do {
+            String doc = JOptionPane.showInputDialog("informe seu documento");
+            conta = contaController.getAccountByDocument(doc);
 
-        String doc = JOptionPane.showInputDialog("informe seu documento");
-        contaController.getAccountByDocument(doc);
+            if (conta != null) {
+                do {
+                    String senha = JOptionPane.showInputDialog("Informe sua senha");
+                    ehValida = conta.validaSenha(senha);
+                } while (ehValida == false);
+
+            }
+        } while (conta == null);
 
     }
     private void botaoTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTransferirActionPerformed

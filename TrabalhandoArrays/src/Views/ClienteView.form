@@ -40,6 +40,8 @@
                       <Component id="botaoDepositar" min="-2" pref="109" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoTransferir" min="-2" pref="109" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="extratoBotao" min="-2" pref="109" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="botaoSacar" min="-2" pref="109" max="-2" attributes="0"/>
@@ -47,7 +49,7 @@
                       <Component id="botaoExtrato" min="-2" pref="109" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,13 +70,14 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botaoDepositar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botaoTransferir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="extratoBotao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botaoSacar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botaoExtrato" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,6 +95,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="SACAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSacarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoTransferir">
       <Properties>
@@ -125,6 +131,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="titular"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="extratoBotao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="EXTRATO"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="extratoBotaoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

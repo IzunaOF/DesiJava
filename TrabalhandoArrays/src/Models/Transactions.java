@@ -5,33 +5,57 @@
  */
 package Models;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
 public class Transactions {
 
     private Integer numero;
-    private UUID conta_id;
-    private UUID pessoa_id;
-    private String created_at;
+    private Account conta;
+    private Date created_at;
     private TipoOperacao type;
-    private Double saldo;
+    private Double valor;
+    private Double saldoMomento;
+ 
 
-    public Transactions(Integer numero, UUID conta_id, UUID pessoa_id, TipoOperacao type, Double saldo) {
-        this.numero = numero;
-        this.conta_id = conta_id;
-        this.pessoa_id = pessoa_id;
-        this.created_at = new Date().toLocaleString();
+    public Transactions(Account conta, TipoOperacao type, Double valor) {
+        this.conta = conta;
+        this.created_at = new Date();
         this.type = type;
-        this.saldo = saldo;
+        this.valor = valor;
     }
 
-    public Transactions(Integer numero, UUID conta_id, UUID pessoa_id, String created_at, TipoOperacao type, Double saldo) {
+    public Transactions(Integer numero,Account conta,  Date created_at, TipoOperacao type, Double saldo, Double valor) {
         this.numero = numero;
-        this.conta_id = conta_id;
-        this.pessoa_id = pessoa_id;
+        this.conta = conta;
         this.created_at = created_at;
         this.type = type;
-        this.saldo = saldo;
+        this.valor = valor;
+        this.saldoMomento = saldo;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public Account getConta() {
+        return conta;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+    
+    public Date getCreated_at() {
+        return created_at;
+    }
+
+    public String getType() {
+        if (this.type.compareTo(TipoOperacao.ENTRADA) == 0) {
+            return "entrada";
+        } else {
+            return "saida";
+        }
     }
 }

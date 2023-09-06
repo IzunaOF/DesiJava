@@ -17,6 +17,5 @@ public class Main {
         getConnection();
 
         new Sistema().setVisible(true);
-
     }
 }

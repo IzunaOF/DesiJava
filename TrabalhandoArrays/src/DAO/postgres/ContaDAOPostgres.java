@@ -52,7 +52,7 @@ public class ContaDAOPostgres implements ContaDAO {
             String sql = "SELECT c.id, c.numero, c.saldo, c.tipo, c.pessoa_id, c.senha,  p.nome, p.tipo as pessoa_tipo FROM t_conta as c JOIN t_pessoa as p ON c.pessoa_id = p.id WHERE p.documento =  ?";
             PreparedStatement stm = this.connection.prepareStatement(sql);
 
-            stm.setString(1, "1234567898");
+            stm.setString(1, documento);
             ResultSet resp = stm.executeQuery();
 
             if (resp.next()) {

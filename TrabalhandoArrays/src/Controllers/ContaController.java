@@ -14,7 +14,7 @@ import Util.ConnectionClient;
 
 public class ContaController {
 
-    private Integer ID_CONTROL = 0;
+    private Integer ID_CONTROL = 2;
 
     private String[] types = {"cs", "cp", "cc"};
 
@@ -52,6 +52,12 @@ public class ContaController {
     public void depositar(String documento, Double value) {
         Account conta = makeContaDAO().buscarContaPorDocumentoTitular(documento);
         conta.depositar(value);
+        makeContaDAO().atualizarSaldo(conta);
+    }
+    
+        public void sacar(String documento, Double value) {
+        Account conta = makeContaDAO().buscarContaPorDocumentoTitular(documento);
+        conta.sacar(value);
         makeContaDAO().atualizarSaldo(conta);
     }
 }

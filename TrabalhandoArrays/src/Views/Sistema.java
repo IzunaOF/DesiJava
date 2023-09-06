@@ -77,17 +77,14 @@ public class Sistema extends javax.swing.JFrame {
 
     private void botaoGerenteEscolhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenteEscolhaActionPerformed
         this.dispose();
-        //new GerenteView().setVisible(true);
+        new GerenteView().setVisible(true);
     }//GEN-LAST:event_botaoGerenteEscolhaActionPerformed
 
     private void botaoClienteEscolhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoClienteEscolhaActionPerformed
         this.dispose();
-        String key = JOptionPane.showInputDialog("Digite sua conta");
-        Account conta = new Controllers.ContaController().getAccountByDocument(key);
-
-        if (conta != null) {
-            //new ClienteView().setVisible(true);
-        }
+  
+            new ClienteView().setVisible(true);
+ 
     }//GEN-LAST:event_botaoClienteEscolhaActionPerformed
 
 

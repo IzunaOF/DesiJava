@@ -32,9 +32,14 @@ CREATE TYPE enum_tipo_operacao as ENUM('entrada', 'saida');
 CREATE TABLE transactions (
 	id SERIAL primary key,
 	conta_id UUID NOT NULL references t_conta(id),
-	client_id UUID NOT NULL references t_pessoa(id),
 	created_at DATE NOT NULL,
-	tipo_operacao enum_tipo_operacao NOT NULL 
+	tipo_operacao enum_tipo_operacao NOT NULL ,
+                  saldo_conta DECIMAL NOT NULL,
+                  valor DECIMAL NOT NULL
 )
+t.created_at, t.tipo_operacao, p.nome, c.numero, c.saldo, c.tipo
 
 ALTER TABLE transactions ADD COLUMN saldo_conta DECIMAL NOT NULL
+
+ALTER TABLE transactions ADD COLUMN valor DECIMAL NOT NULL
+

@@ -1,8 +1,9 @@
 
 package DAO;
 import Models.Transactions;
+import java.util.List;
 
 public interface TransactionDAO {
-    public void createTransaction(Transactions transaction);
-    public Transactions[] getAccountTransaction();
+    public void insertTransaction(Transactions transaction );
+    public List<Transactions> getAccountTransaction(String documento);
 }
